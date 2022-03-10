@@ -1,0 +1,41 @@
+def getsum(n):
+    
+    sum = 0
+    for digit in str(n): 
+      if digit.isnumeric():
+        sum += int(digit)
+      else: 
+        sum += ord(digit)-55      
+    return sum
+
+
+
+
+BS="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+def to_base(n, b): 
+    return "0" if not n else to_base(n//b, b).lstrip("0") + BS[n%b]
+
+
+def digitalnumber(b):
+  x=1
+  while x < b ** 3:
+    a=to_base(x ** 2,b)
+    if getsum(a) == x:
+      print(x)
+      x=x+1
+    else:
+      x = x + 1
+
+
+  
+
+def searchforc(n):
+  x=2
+  while x < n:
+    a=to_base( (x+3) ** 2, x)
+    if getsum(a) == x+3:
+      print(x)
+      x +=1
+    else:
+      x +=1
+
